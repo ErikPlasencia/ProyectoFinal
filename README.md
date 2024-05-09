@@ -484,7 +484,7 @@ git add .
 git commit -m "Primer commit"
 git remote add origin https://github.com/ErikPlasencia/ProyectoFinal.git
 #Para enviar a la rama default (main)
-git push origin main
+git push origin master
 ```
 
 En principio con estos pasos seria ya mas que suficiente para poderlo haber hecho de forma correcta.
@@ -493,8 +493,181 @@ Voy ha seguir estos pasos en mi maquina que se que funcionan de forma correcta.
 
 Para descargar y obtener cambios que hayan habido en el repositorio realizaremos
 ```bash
-git pull origin main
+git pull origin master
 ```
 
-Aparte de los ficheros del proyecto tambien subiremos este documento.
-linea para el ejercicio
+Aparte de los ficheros del proyecto también subiremos este documento.
+
+
+### *3.1.3 Commits*
+
+- Esta funcion **commit** funciona para dar confirmación a unos cambios específicos en nuestro código fuente, este se realizara sobre nuestro repositorio local.
+- El procedimiento usual para genera un commit es el siguiente:
+	- git add
+	- git status 
+	- git commit 
+- Estos como ya he dicho se generan y se guardan en la maquina local luego para poder ver el historial de estos se puede ver utilizando git log.
+- Para enviarlo al repositorio remoto tenemos de realizar el git push 
+
+La parte de practica la he hecho pero no puedo acceder a documentarlo ya que lo he hecho por el git  y luego en mi terminal solo he realizado un git pull para descargarme el readme.md que he hecho.
+
+### *3.1.2 Fitxer .gitignore*
+
+Esto es porque GIT permite ignorar fitxeros para no incluirlo en un commit, esto significa que nunca serán subidos en el repositorio. 
+
+**VAMOS A PONERLO EN PRACTICA**
+- Crea un nuevo directorio que se llame "config"
+	- ![[Pasted image 20240509191246.png]]
+	- Crea un nuevo directorio que se llame "database.php" dentro de este nuevo directorio
+	- ![[Pasted image 20240509191506.png]]
+	- Revisa el listado de fitxeros marcados por guardar los cambio con git status 
+	- Crea el fitxero .gitignore en la raíz del repositorio 
+	- ![[Pasted image 20240509192028.png]]
+	- Comproveu que el directori config ni els fitxers interiors apareixen com a canvi per “cometre”. En cas contrari, probablement, teniu l’aplicació PHP dins d’un directori intermig i no a l’arrel.
+	- Feu un commit NOMÉS del fitxer .gitignore amb un comentari associat
+		- Lo voy ha hacer todo junto:
+		- 
+		- ![[Pasted image 20240509192543.png]]
+		- ![[Pasted image 20240509192601.png]]
+		- Podemos ver como se ha subido el .gitignore.php pero no la carpeta config
+		- ![[Pasted image 20240509192641.png]]
+
+### *3.1.5 Branques i etiquetes*
+
+La política de ramas y etiquetas será sencilla. Al inicio del desarrollo de cada versión del proyecto, como por ejemplo «b0.2», crearemos una nueva rama. Una vez que el código esté completo y probado, fusionaremos la rama actual con la rama principal, ya sea «master» o «main», y luego crearemos una etiqueta de versión en la rama principal, por ejemplo «0.1».  
+En caso de olvidar subir algún cambio después de fusionar una rama de versión a la rama «master» y crear la etiqueta correspondiente , podemos hacer un commit directamente en la rama «master» y crear una subetiqueta, por ejemplo «0.2.1». Si nos olvidamos de algún cambio nuevamente, podemos repetir el proceso con un nuevo commit y una nueva subetiqueta, como por ejemplo «0.2.2», y así sucesivamente.
+
+![](https://lh7-us.googleusercontent.com/3gD4NK7qJgCaqIlCtR_PAA2B4nZgYT67nSLab8UlRJA2J6EsA1-zM3ReIol_1tn8VyRCD72VsRkkIc0buuLpO1jZciZEqhkCUwkWNRWKreppPdwCm5RGInXZEsSCKiJ_g8wk2Mt6ULgNTGnJrHzJi0M)
+
+  
+### *3.1.5.1 Branca master*
+
+Por defecto, al crear un nuevo repositorio Git, se genera una rama principal llamada «master» . Las ramas son «bifurcaciones» del estado actual del código que permiten desarrollar nuevo código en paralelo sin afectar el código actual. Una de las mayores utilidades del uso de ramas es evitar pisarnos el trabajo cuando trabajamos en equipo.
+
+- ![[Pasted image 20240509193231.png]]
+### *3.1.5.2 Subir y bajar cambios*
+
+Normalmente cuando hacemos estas conexiones es porque somos mas de una persona desarollando el proyecto asi que tenemos de saber subir los archivos;
+
+```bash
+git push origin BRANCA
+```
+
+Pero tambien tenemos de saber descargarnos los cambios nuevos que hayana en el repositorio remoto a nuestra terminal para actualizar nuestros codigos locales;
+
+```bash
+git pull origin BRANCA
+```
+
+--> LA PRACTICA ESTA NO SIRVE PARA NADA Y YA HE PRACTICADO CON EL GIT EN EL PROYECTO DE M04 ASI QUE VOT HA PASAR A LA SIGUIENTE FASE.
+
+La utilidad que tiene el push y el pull en la vida real es importantísima ya que es un medio que te permite mantener tus códigos actualizados descargando y subiendo archivos de repositorios remotos.
+
+### *3.1.5.3 Etiqueta v0.1*
+
+Estas sirven para marcar el estado de un código en un momento concreto, básicamente darle un nombre a un commit de una rama en concreto atreves del siguiente comando;
+
+```bash
+git tag ETIQUETA    
+```
+
+Esta misma tambien te permite ver las etiquetas creadas con;
+
+```bash
+git tag -l
+```
+
+O eliminar estas con la opcion -d;
+
+```bash
+git tag -d ETIQUETA 
+```
+
+>[!warning] Recordatorio 
+> Quan hem creat etiquetes des de la nostra màquina local i volem pujar-les al repositori remot, cal afegir l’opció --tags a la comanda git push
+
+**VAMOS A PONERLO EN PRACTICA**
+- Los pasos que tenemos de seguir estan en el documento del moodle, aqui estan los resultados;
+![[Pasted image 20240509194942.png]]
+
+- Etiquetas que tenemos despues de este push en nuestro repositorio del git; 
+![[Pasted image 20240509195050.png]]
+
+### *3.1.5.4 Branca b0.2*
+
+Podemos crear una nueva rama, a partir de la actual, con el comando;
+
+```bash
+git branch BRANCA
+```
+  
+El mismo pedido también permite listar las ramas creadas con la opción -l:
+
+```bash
+git branch -l
+```
+
+O eliminar las ramas creadas con la opción -d:
+
+```bash
+  git branch -d BRANCA
+```
+
+Cuando tenemos más de una rama, podemos cambiar de una a otra con el comando
+
+```bash
+git checkout BRANCA
+```
+
+Si queremos crear una nueva rama y acceder de repente, podemos utilizar el mismo pedido con la opción -b:
+
+```bash
+git checkout -b BRANCA
+```
+
+**VAMOS A PONERLO EN PRACTICA**
+
+1. Assegureu-vos que sou a la branca principal (“master” o “main”)
+    - **![](https://lh7-us.googleusercontent.com/tyJTAMSCjPuQ64furErxjNpRvYv5PjQACkAHZkXi3LAPTYuRjBmSVq4go2RExUmNptmlVaDK5Pg6t4jIqy7-8dYp1gQQADX9LZy89iT3xWadILfK79deWgifSNyFAwhyUTnP8uM-68yiw99POVDs7UI)**
+2. Creeu una nova branca “b0.2” a partir de la branca principal
+    - **![](https://lh7-us.googleusercontent.com/-4W2rhuSXMnQfb_GfdKXLvEi8kk8dvTc4KQ4qU4Vg_uSOWs6asGdoj2uQnhiI_l4jfmHPVurxTmi6VlCy5Ud41zioa5l1o4mulRzfORgsCbvPSaG0QG4r5uKOAuXmjqc-sm9y6NMRa0lnUYDdpX2unU)**
+3. Canvieu a la nova branca “b0.2”
+    - **![](https://lh7-us.googleusercontent.com/mpzAmubecqiHAnI_Q1N8S3rzKAVFnhkCIEE6uZIkBdU8QvCh5qZVCFDyzQhxQACo0etGNyWzuxnBwh0v5M-9-s4mIJKpO5-WIzhQIqN87ZzoMl8dxsso_ryKboX3kq6xLaSZQgrdGXJRSPTf2XOv4bA)**
+4. Editeu el fitxer README.md per afegir una nova línia amb la versió actual del projecte
+    - **![](https://lh7-us.googleusercontent.com/_Rg7dt1q2WihPKQ_EEYK5EVk8YJF-ZHuVL5EWHH9EWWo9UglHRihb5wJotEj16VUq7NLFtvSogLZrv2TM5F25EZLEZupqYekr3DmFLD_dVGCYjFUaF2K9THZ_DUrdWDHFf7z0WOjLqoOSDH6rSuvLsY)**
+5. Feu un commit dels canvis realitzats al fitxer README.md
+    - **![](https://lh7-us.googleusercontent.com/odO7inQfmNTZHU9vzegpxVF4zwujNOFtriIropOrw2LWN80AZKgvRtPZ3Vxt2eaatytXVsswX0HexqIFt-kx7KN8qxlhI9Wh49VDBy_lIibOk7zDHBnD104FGP55HWnbY_Uql7Ot0BEmPeJdHFkCfr0)**
+6. Pugeu NOMÉS els canvis de la branca “b0.2” al repositori remot
+	- **![](https://lh7-us.googleusercontent.com/COgfgoG9EvEJqZixDW4S2RyZbpUU99Txq1mLZb-O5_tuWJ-o4H4S_XUC6fnJAofdjNKgjFp8sqYQELVCRxEVOKqJ4dfybG1eP4V5KEKFwSD4b9yAmpa8gxePqhQi4aml4v0KAV1fl5gF5NrMDjbMciM)**
+
+- Accediu a [GitHub](https://github.com/) i documenteu les branques actuals del repositori;
+	- Cuando accedo al github lo primero que veo esque hay otra rama y que apartte logicamente por los pasos del ejercicio es la que tenemos activa ahora mismo; **![](https://lh7-us.googleusercontent.com/_n1G4EYZpO3frcykJoOq9GqMmgqh8v65yZI3srhtZFgfXwdu8futC-J-G5hDDdrelzNaoFNpNPCqknuYI_--S4zPw1sP2DdKv8jsOv4jGyhhPnJm5NR6VcoNAilY9bSe1KYdv4hAR2VB5cGQ4uhe7wM)**
+	- Aparte de esto cuando miro lo que esta rama tiene lo mismo que la otra pero que tiene mas actualizado el Readme.md que no la rama principal; 
+	- **![](https://lh7-us.googleusercontent.com/jDkR4wcp3WlDeS6IoDrEI2JylHZT2PP2fGiOvvTVT4Js0bCGtI3X_o9CkR8ymJYMqFnbGcqsL26HisALRNYixIInSJWsGMo1AQNVna6ItalstAJQM3qblyW8Mm2C2mqLxroTygb1J2VAeBuIcTuQwkk)**
+### **Barrejar Ramas**
+
+En principio tendriamos de seguir desarrollando la rama que acabamos de crear y despues fusionarlas pero para practicar lo realizaremos ahora con el comando;
+
+```
+git merge 
+```
+
+**VAMOS A PRACTICAR**
+
+
+1. Canvieu a la branca principal (“master” o “main”)
+    - **![](https://lh7-us.googleusercontent.com/bm5b58RcYL3893S8DtI88v1aDPlrcRYesnZcJq1OfIIADDdsRtSPOzrlWmibUH_XyeNkdFy93U83thamisG9ws53uSyjPt6DhHSHBX3V4LApKAwzxlhHcM4qHsB_NbNEMjpGbzCIZnPmbGFUh3c3Lrc)**
+2. Assegureu-vos que sou a la branca principal
+    - **![](https://lh7-us.googleusercontent.com/kQgBIAJYV2Ek64v4A0vav4sM7vkvT5lxuUEj19cK2Zd1dqdcjB35ZA27qUb_A02mU7oGcMpcV--TAPcM5BKlTcqNW3auH1VlRR8wj70kdsZMQUfjY5A3LpjGGZIWpmTShuOZBejqDAq3bya-8DTUhLk)**
+3. Reviseu l’històric de commits realitzats
+    - **![](https://lh7-us.googleusercontent.com/E2uhgXGru7xXiTpqLu0vCL8pDPCemYGVKZLF5V2obD7z_N54hJf1-mSAIfztSLqZUjiIYe8aCR24SJRxD-IBXI-J6lDyzr3iNJTW2SqNc2JFNz9kQTrB6bFKjPSrL3xUrQWotCBvsrdvC0h2EqFiSBM)**
+4. Barregeu la branca “b0.2” a la branca principal amb la comanda git merge;
+    - **![](https://lh7-us.googleusercontent.com/7_sLZnLkcrd5QLHTy3D69CtiovB5aG2hG4J5M2TiMA--KLkNgZ8xv0FVbIPH1hpaTVjTGOw8TQ_j89Vdwy-2b0xL_jFdYQjdBdsWwC23hnbAHXSde7tmX8JZoYlPKpNk1DlOP67p5jqFg0tSpQlZ5ec)**
+5. Reviseu l’històric de commits realitzats (veureu un nou commit!)
+    - No me acorde de hacerle captura de pantalla 
+6. Pugeu els canvis al repositori remot
+    - **![](https://lh7-us.googleusercontent.com/zu7BTAez0HC1mD2AHnki8cmwyY3ckbZqPSJdY56Z1xFAFkmpBuuyd_ABsd2akUvja_C80aeOGW3EYR6PYZVWwz18d7fai4R5yANa3b9Nnx6ktPAZLv2wqzI_ms4YKyMbVqKahB7BRaaMyM1Qnv9bfv4)**
+7. Reviseu l’històric de commits realitzats amb les següents opcions:
+    - **![](https://lh7-us.googleusercontent.com/MBzmFDnhAN-T8rEP00TOfua0VvLKn7_XzFKHufuDcH-XxXdpu3HCeqscWByBF1TU_LndV4fq_prjeAYTMTcTY0BakzLPaisdMKQuiq-UxneniH7Sg5Mp7mOvbzvQ7JHaBi3Gmh5UH3tSy-8-8XJzuBA)**
+
+
