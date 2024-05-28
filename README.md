@@ -644,9 +644,9 @@ git checkout -b BRANCA
 	- Cuando accedo al github lo primero que veo esque hay otra rama y que apartte logicamente por los pasos del ejercicio es la que tenemos activa ahora mismo; **![](https://lh7-us.googleusercontent.com/_n1G4EYZpO3frcykJoOq9GqMmgqh8v65yZI3srhtZFgfXwdu8futC-J-G5hDDdrelzNaoFNpNPCqknuYI_--S4zPw1sP2DdKv8jsOv4jGyhhPnJm5NR6VcoNAilY9bSe1KYdv4hAR2VB5cGQ4uhe7wM)**
 	- Aparte de esto cuando miro lo que esta rama tiene lo mismo que la otra pero que tiene mas actualizado el Readme.md que no la rama principal; 
 	- **![](https://lh7-us.googleusercontent.com/jDkR4wcp3WlDeS6IoDrEI2JylHZT2PP2fGiOvvTVT4Js0bCGtI3X_o9CkR8ymJYMqFnbGcqsL26HisALRNYixIInSJWsGMo1AQNVna6ItalstAJQM3qblyW8Mm2C2mqLxroTygb1J2VAeBuIcTuQwkk)**
-### **Barrejar Ramas**
+### *3.1.5.4 Barrejar Ramas*
 
-En principio tendriamos de seguir desarrollando la rama que acabamos de crear y despues fusionarlas pero para practicar lo realizaremos ahora con el comando;
+En principio tendríamos de seguir desarrollando la rama que acabamos de crear y despues fusionarlas pero para practicar lo realizaremos ahora con el comando;
 
 ```
 git merge 
@@ -671,3 +671,100 @@ git merge
     - **![](https://lh7-us.googleusercontent.com/MBzmFDnhAN-T8rEP00TOfua0VvLKn7_XzFKHufuDcH-XxXdpu3HCeqscWByBF1TU_LndV4fq_prjeAYTMTcTY0BakzLPaisdMKQuiq-UxneniH7Sg5Mp7mOvbzvQ7JHaBi3Gmh5UH3tSy-8-8XJzuBA)**
 
 
+## *3.2 DOCUMENTACION DEL CODIGO*
+
+- Antes de continuar cambia a la rama "b0.2" del repositorio para guardar los cambios de esa rama 
+
+
+### *3.2.1 Generar Documentación*
+
+La herramienta de ==phpDocumentor==  nos permitirá generar documentación del código desarrollado apartir de comentario que estén incluidos en el propio código, vamos a probarlo con los siguientes pasos;
+- Consulta la guía de instalación de este i descarga la versión ejecutable de la herramienta raíz. (será fichero PHAR) --> Toda la información de la instalación [aqui](https://docs.phpdoc.org/guide/getting-started/installing.html#installation)
+- Pasos que he seguido para poder instalarlo:
+
+1. Instala Phive siguiendo las instrucciones en su sitio web: [https://phar.io/](https://phar.io/)
+2. Una vez instalado Phive, ejecuta el siguiente comando para instalar PHP Documentor:
+
+Open In EditorEditCopy code
+
+`1$ phive install phpDocumentor`
+
+Después de ejecutar este comando, PHP Documentor se instalará y se podrá ejecutar directamente.
+
+Alternativamente, puedes descargar el archivo PHAR más reciente desde [https://phpdoc.org/phpDocumentor.phar](https://phpdoc.org/phpDocumentor.phar) o una versión específica desde [https://github.com/phpDocumentor/phpDocumentor/releases](https://github.com/phpDocumentor/phpDocumentor/releases).
+
+El archivo PHAR se puede usar invocando PHP directamente y proporcionando el archivo PHAR como un parámetro:
+
+Open In EditorEditCopy code
+
+`1$ php phpDocumentor.phar run -d . -t docs/api`
+
+En Mac y Linux, puedes marcarlo como ejecutable y moverlo a tu carpeta bin:
+
+Open In EditorEditCopy code
+
+`1$ chmod +x phpDocumentor.phar 2$ mv phpDocumentor.phar /usr/local/bin/phpDocumentor`
+
+Después de eso, puedes ejecutarlo globalmente:
+
+Open In EditorEditCopy code
+
+`1$ phpDocumentor run -d . -t docs/api`
+
+**
+
+- No funciona esto (no me he acordado de poner capturas de la instalacion pero intentando que funcionase acabe poniendo los siguientes comando que me dijo el chat gpt haber si de esa manera conseguia que me funcionase).  
+      
+    
+- ![](https://lh7-us.googleusercontent.com/JT3zuCSxMQs2KBdnZTYOgDDtYApPbGyeSQRWD_ukDHcQqrCMZCHY-Hh1R5AK7ia8c1txYZWvNQ5IAJCJWbXpCDZI_mbymd__jo0fo66ha-6qYKMIgKaDSqxSQnuQvas6S5Xmz5u5WtyVcW-nhMLneYc)
+    
+
+### *3.2.2 Editar .gitignore*
+
+  
+
+- En este apartado no he movido nada ya que no me funciona el phpDocumentor.
+    
+
+  
+
+### *3.2.3 Actualizar repositorio*
+
+- Este apartado si que te lo puedo hacer haciendo los pasos necesarios que hacen falta para subir cosas al github en concreto en  la rama ‘b0.2’:
+    
+
+  
+![](https://lh7-us.googleusercontent.com/2A-VJbm1XbeftG5E0_Fkr7MiQ_MOyA8k5EVl40iuBBuJafRMV0YKAH1yD7hVnjLRu1KwM0A7YvtMS4nEWhI_9COPrJKd9JqzpYquf0gGuUCZgcoivSF421ezDesWD85dVc_lRRV8hgwXLcLSfr5KfTk)
+
+  
+
+Aqui he seguido todos los pasos que tendria de hacer si me hubiese funcionado pero la unica diferenia es que cuando hago el push sale que esta al dia porque no ha habido ningun tipo de cambio en ningun archivo que tenga de subir al github ya que no me funcionaba el phpdocumentor ese.
+
+## *4.- Desenvolvimiento v1.0* 
+
+### *4.1 Modificar la BD*
+
+- Llegados a este punto tengo de crear dos tablas relacionales más y luego la tabla de usuarios también. 
+    
+- La segunda tabla que creo es una tabla llamada jugadores que contiene lo siguiente;
+    
+
+![](https://lh7-us.googleusercontent.com/FDEooiwRyAacyadRUwtGF02kvVu2kYOW8F_bg0xbEsP5OWC7rYSa1XJ78lR9aJs3y0utEVxtWUbJDiq2oX0g3pjDYTC079TQ4bfMbxUlqSb176gE1alR4lSXlQzYsKFeowa2zGwgEoYdo33LXphBsRY)
+
+  
+
+- La tercera tabla que creo es una tabla llamada
+    
+
+![](https://lh7-us.googleusercontent.com/Uvly0TEaPn7_tmy6AECfJ2RY8yGVz7JEPTf0C7CzUye81xEYDI3fnCqJra9mckfwwG0zGFhWDXJpbA64bdHE5FbmagaZ4lL9WrdF34IxkpWB7-0h533kp3YxItEkZxHzaP2j3zzYWf8W9_HoLVk9MFk)
+
+  
+
+- Y la última tabla es la de usuarios que pedía el apartado;
+    
+
+![](https://lh7-us.googleusercontent.com/j5v9fLfK5WUCGtItoW0WkTJboIroJjcwacgQusdByULYMznPhTZTbcGhvSlOhxNLXqm-eDRo6Jv4zrmVi683ORoRkK1ilRWZm7484uqCFV4W3NCbAqWeG8tI5pWIknRJv0h5F38zyrsvqQGx9MyK2UQ)
+
+  
+  
+  
